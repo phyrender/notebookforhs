@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS records (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  date TEXT,
+  amount REAL,
+  type TEXT,
+  handler TEXT,
+  remark TEXT,
+  share INTEGER DEFAULT 1,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
