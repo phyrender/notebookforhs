@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>分摊结算</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <a href="index.html" class="back">← 返回</a>
+    <h1>📊 分摊结算</h1>
+  </div>
+
+  <div class="settle-card">
+    <h3>费用概览</h3>
+    <div class="settle-row">
+      <span>可分摊总额</span>
+      <strong id="shareTotal">￥0.00</strong>
+    </div>
+    <div class="settle-row">
+      <span>每位兄弟应摊</span>
+      <strong id="perBrother">￥0.00</strong>
+    </div>
+    <div class="settle-row">
+      <span>助理垫付合计</span>
+      <strong id="assistantTotal">￥0.00</strong>
+    </div>
+  </div>
+
+  <div class="settle-card">
+    <h3>兄弟结算明细</h3>
+    <div id="brotherStats"></div>
+  </div>
+
+  <div class="settle-card">
+    <h3>💡 建议转账</h3>
+    <div id="transfers" class="transfers"></div>
+  </div>
+
+  <div class="settle-card">
+    <h3>经手人汇总</h3>
+    <div id="handlerStats"></div>
+  </div>
+
+  <button class="btn btn-danger btn-full" onclick="clearAll()">清空全部记录</button>
+</div>
+
+<script src="app.js"></script>
+<script>
+loadSettleData();
+</script>
+</body>
+</html>
