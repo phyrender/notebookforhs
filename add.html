@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>记一笔</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <a href="index.html" class="back">← 返回</a>
+    <h1>记一笔支出</h1>
+  </div>
+
+  <div class="form-card">
+    <div class="field">
+      <label>日期</label>
+      <input type="date" id="date" required>
+    </div>
+
+    <div class="field">
+      <label>金额（元）</label>
+      <input type="number" step="0.01" id="amount" placeholder="0.00" required>
+    </div>
+
+    <div class="field">
+      <label>费用种类</label>
+      <select id="type">
+        <option value="药品费">药品费</option>
+        <option value="检查化验费">检查化验费</option>
+        <option value="护理耗材费">护理耗材费</option>
+        <option value="住院费">住院费</option>
+        <option value="其他">其他</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>经手人</label>
+      <select id="handler" onchange="onHandlerChange()">
+        <option value="老大">老大</option>
+        <option value="老二">老二</option>
+        <option value="老三">老三</option>
+        <option value="助理">助理</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>备注（买什么药）</label>
+      <input type="text" id="remark" placeholder="如：白蛋白×2瓶">
+    </div>
+
+    <div class="field checkbox-field">
+      <label>参与兄弟分摊</label>
+      <input type="checkbox" id="share" checked>
+    </div>
+
+    <button class="btn btn-primary btn-full" onclick="saveRecord()">保存</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+<script>
+// 默认今天日期
+document.getElementById('date').value = new Date().toISOString().slice(0,10);
+
+function onHandlerChange() {
+  const h = document.getElementById('handler').value;
+  // 助理自动不摊
+  if (h === '助理') {
+    document.getElementById('share').checked = false;
+    document.getElementById('share').disabled = true;
+  } else {
+    document.getElementById('share').checked = true;
+    document.getElementById('share').disabled = false;
+  }
+}
+</script>
+</body>
+</html>
