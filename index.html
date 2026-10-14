@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>住院买药记账</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <h1>💊 住院买药记账</h1>
+    <p class="subtitle">3兄弟平摊 · 助理不摊</p>
+  </div>
+
+  <div class="total-card">
+    <div class="total-row">
+      <span>总支出</span>
+      <span class="total-money" id="totalAmount">￥0.00</span>
+    </div>
+    <div class="total-row sub">
+      <span>可分摊金额</span>
+      <span id="shareAmount">￥0.00</span>
+    </div>
+    <div class="total-row sub">
+      <span>助理垫付</span>
+      <span id="assistantAmount">￥0.00</span>
+    </div>
+    <div class="total-row sub">
+      <span>共 <strong id="recordCount">0</strong> 笔记录</span>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <a href="add.html" class="btn btn-primary">＋ 记一笔支出</a>
+    <a href="settle.html" class="btn btn-secondary">📊 分摊结算</a>
+  </div>
+
+  <div class="list-header">
+    <h3>支出明细</h3>
+    <button class="btn-small" onclick="exportCSV()">导出CSV</button>
+  </div>
+
+  <div id="recordList" class="record-list">
+    <p class="empty">加载中...</p>
+  </div>
+</div>
+
+<script src="app.js"></script>
+<script>
+loadHomeData();
+</script>
+</body>
+</html>
